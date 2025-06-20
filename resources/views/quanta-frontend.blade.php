@@ -48,13 +48,13 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Features</a>
+                            <a class="nav-link active" aria-current="page" href="#features">Features</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link light-text" href="#Quantapricing">Pricing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link light-text" href="#">Demo</a>
+                            <a class="nav-link light-text" href="#demo">Demo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link light-text" href="#contact">Contact</a>
@@ -99,105 +99,8 @@
     </div>
 </div>
 
-<!-- marquee universities -->
-{{-- <div class="univercities pt-5 pb-5">
-    <div class="container">
-        <div class="head text-center">
-            <h2 class="mb-4">Our Partner Universities</h2>
-            <p>We collaborate with top institutions worldwide</p>
-        </div>
-         <div class="marquee">
-        <div class="marquee-content">
-            <!-- المجموعة الأولى -->
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMPA3S5R1A2ZD712WPY05J.png" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMARY1YG7GY2Z7NBZWG7Y8.png" alt=""> </div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYJCMH3YHSRYYVVWT7NJSEN.jpg" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYNCC53G1J6XHQZW8S6S3CX.png" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JTK4YS88PQHBVQBMG46JBZY8.jpg" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JW19065HY6D0A3ZZBG4H4237.jpg" alt=""></div>
-            <!-- المجموعة الثانية (نسخة مكررة) -->
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMPA3S5R1A2ZD712WPY05J.png" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMARY1YG7GY2Z7NBZWG7Y8.png" alt=""> </div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYJCMH3YHSRYYVVWT7NJSEN.jpg" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYNCC53G1J6XHQZW8S6S3CX.png" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JTK4YS88PQHBVQBMG46JBZY8.jpg" alt=""></div>
-            <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JW19065HY6D0A3ZZBG4H4237.jpg" alt=""></div>
-        </div>
-            <!-- الشريط الثاني: من اليسار لليمين -->
-        <div class="marquee marquee-reverse">
-            <div class="marquee-content">
-                <!-- المجموعة الأولى -->
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYNCC53G1J6XHQZW8S6S3CX.png" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JTK4YS88PQHBVQBMG46JBZY8.jpg" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JW19065HY6D0A3ZZBG4H4237.jpg" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMPA3S5R1A2ZD712WPY05J.png" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMARY1YG7GY2Z7NBZWG7Y8.png" alt=""> </div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYJCMH3YHSRYYVVWT7NJSEN.jpg" alt=""></div>
-                <!-- المجموعة الثانية (نسخة مكررة) -->
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMPA3S5R1A2ZD712WPY05J.png" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYJCMH3YHSRYYVVWT7NJSEN.jpg" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYNCC53G1J6XHQZW8S6S3CX.png" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JTK4YS88PQHBVQBMG46JBZY8.jpg" alt=""></div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JVYMARY1YG7GY2Z7NBZWG7Y8.png" alt=""> </div>
-                <div class="card"><img src="https://uni-advisor.com/storage/university-logos/01JW19065HY6D0A3ZZBG4H4237.jpg" alt=""></div>
-            </div>
-        </div>
-    </div>
-    </div>
-</div> --}}
-<!-- marquee universities -->
-
-<!-- start section -->
-<div class="start-section pt-5 pb-5">
-    <div class="container text-center" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <p class="start-p">How to</p>
-        <h1 class="start-title">How do I get started?</h1>
-        <div class="container step-wrapper">
-            <div class="row text-center mt-5">
-                <div class="col-lg-3 col-md-6 col-sm-6 work-icon text-center">
-                    <div class="icon mb-4"><i class="fa-solid fa-credit-card"></i></div>
-                    <div class="step-number mb-4"><span class="one">1</span></div>
-                    <div class="step-title  mb-4">Subscribe to <span class="start-title">QuantaMinds AI</span></div>
-                    <button type="button" class="btn custom-btn mt-lg-5">View plans</button>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 work-icon text-center">
-                    <div class="icon mb-4"><i class="fa-solid fa-phone"></i></div>
-                    <div class="step-number mb-4"><span class="two">2</span></div>
-                    <div class="step-title mb-4">An onboarding manager will contact you within 24 hours</div>
-                    <button type="button" class="btn custom-btn mt-lg-4">View kyc requirements</button>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 work-icon">
-                    <div class="icon mb-4"><i class="fa-solid fa-laptop"></i></div>
-                    <div class="step-number mb-4"><span class="two">3</span></div>
-                    <div class="step-title mb-4">Attend our live training</div>
-                    <button type="button" class="btn custom-btn mt-lg-5">View training schedules</button>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-6 work-icon">
-                    <div class="icon mb-4"><i class="fa-solid fa-rocket"></i></div>
-                    <div class="step-number mb-4 "><span class="two four">4</span></div>
-                    <div class="step-title ">Go live</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end section -->
-
-<!-- ready? -->
-<div class="ready ">
-    <div class="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <div class="text-center ready-sec pt-5 pb-5">
-            <h1>Ready to Begin Your Educational Journey?</h1>
-            <p class="text-light-50 pt-3 pb-3">Let our experts guide you through the process of studying abroad. We'll help you find the perfect university match and support you every step of the way.</p>
-            <button type="button" class="btn custom-btn">free consultation</button>
-            <button class="btn custom-btn">explore universities</button>
-        </div>
-    </div>
-</div>
-<!-- ready -->
-
 <!-- start how it work section -->
-<div class="HowitWork pt-5 pb-5 text-center" >
+<div class="HowitWork pt-5 pb-5 text-center" id="features">
     <div class="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <h1>How <span class="start-title">QuantaMinds AI</span> works</h1>
         <p class="text-black-50">Get you AI Agents up and running in just a few simple steps</p>
@@ -234,45 +137,41 @@
 </div>
 <!-- end how it work section -->
 
-<!-- Blog section -->
-<div class="blog pt-5 pb-5">
+<!-- DoubleTick -->
+<div class="DoubleTick pt-5 pb-5" id="demo">
     <div class="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <h1 class="mb-4">What's New</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('quanta-ai/photos/technology-human-touch-background-modern-remake-creation-adam.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">🧠 The First Signs of AI Burnout Aren't in the Tech — They're in the Team</h5>
-                        <p class="card-text">The constant push for automation and speed may be affecting your team more than your systems.</p><p>
-We noticed early signals from teams across industries, and here's what leaders can do.</p>
-                    </div>
-                </div>
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-8">
+                <h1>7x your sales with <span class="start-title">QuantaMinds AI</span> powered by WhatsApp Business API</h1>
+                <p>Our team will onboard you and help in setting up your account for free</p>
+                <button type="button" class="btn custom-btn">Get a demo</button>
+                <button class="custom-btn2">view plans</button>
             </div>
-            <div class="col">
-                <div class="card mt-4">
-                    <img src="{{ asset('quanta-ai/photos/programming-background-with-person-working-with-codes-computer.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">📈 To Get Smarter, Ask These 3 AI Questions Daily</h5>
-                        <p class="card-text">Forget self-help clichés—here's how AI can actually make you think better.</p><p>Simple prompts, deeper reflections, better decisions.</p>
-                    </div>
-                </div>
+            <div class="col-lg-4">
+                <img src="https://doubletick.io/_next/static/media/cta-img.a5714ce3.webp" class="img-fluid img" alt="CTA Image">
             </div>
-            <div class="col">
-                <div class="card">
-                    <img src="{{ asset('quanta-ai/photos/futuristic-robot-interacting-with-money.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">💸 How 9 Lines of Prompting Turned into a $10M SaaS Tool</h5>
-                        <p class="card-text">It started with an idea to simplify customer service replies. Now it's automating entire workflows.
-</p><p>Discover how this founder used GPT to build a tool that major companies rely on daily.
-</p>
-                    </div>
-                </div>
-            </div>
+        </div> 
+    </div>
+</div>
+<!-- DoubleTick -->
+
+<!-- testimonial -->
+<div class="testimonials-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Discover our clients' success stories and how we helped them achieve their goals</p>
+        </div>
+    </div>
+
+    <!-- Single Row -->
+    <div class="marquee-container">
+        <div class="marquee-row" id="row1">
+            <!-- Testimonials will be populated by JavaScript -->
         </div>
     </div>
 </div>
-<!-- Blog section -->
+<!-- testimonial -->
 
 <!-- pricing section -->
 <div class="pricing pt-5 pb-5" id="Quantapricing">
@@ -387,23 +286,81 @@ We noticed early signals from teams across industries, and here's what leaders c
 </div>
 <!-- pricing section -->
 
-<!-- testimonial -->
-<div class="testimonials-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>What Our Clients Say</h2>
-            <p>Discover our clients' success stories and how we helped them achieve their goals</p>
-        </div>
-    </div>
-
-    <!-- Single Row -->
-    <div class="marquee-container">
-        <div class="marquee-row" id="row1">
-            <!-- Testimonials will be populated by JavaScript -->
+<!-- start section -->
+<div class="start-section pt-5 pb-5" id="about">
+    <div class="container text-center" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+        <p class="start-p">How to</p>
+        <h1 class="start-title">How do I get started?</h1>
+        <div class="container step-wrapper">
+            <div class="row text-center mt-5">
+                <div class="col-lg-3 col-md-6 col-sm-6 work-icon text-center">
+                    <div class="icon mb-4"><i class="fa-solid fa-credit-card"></i></div>
+                    <div class="step-number mb-4"><span class="one">1</span></div>
+                    <div class="step-title  mb-4">Subscribe to <span class="start-title">QuantaMinds AI</span></div>
+                    <button type="button" class="btn custom-btn mt-lg-5">View plans</button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 work-icon text-center">
+                    <div class="icon mb-4"><i class="fa-solid fa-phone"></i></div>
+                    <div class="step-number mb-4"><span class="two">2</span></div>
+                    <div class="step-title mb-4">An onboarding manager will contact you within 24 hours</div>
+                    <button type="button" class="btn custom-btn mt-lg-4">View kyc requirements</button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 work-icon">
+                    <div class="icon mb-4"><i class="fa-solid fa-laptop"></i></div>
+                    <div class="step-number mb-4"><span class="two">3</span></div>
+                    <div class="step-title mb-4">Attend our live training</div>
+                    <button type="button" class="btn custom-btn mt-lg-5">View training schedules</button>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 work-icon">
+                    <div class="icon mb-4"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="step-number mb-4 "><span class="two four">4</span></div>
+                    <div class="step-title ">Go live</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<!-- testimonial -->
+<!-- end section -->
+
+<!-- Blog section -->
+<div class="blog pt-5 pb-5" id="blog">
+    <div class="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+        <h1 class="mb-4">What's New</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="{{ asset('quanta-ai/photos/technology-human-touch-background-modern-remake-creation-adam.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">🧠 The First Signs of AI Burnout Aren't in the Tech — They're in the Team</h5>
+                        <p class="card-text">The constant push for automation and speed may be affecting your team more than your systems.</p><p>
+We noticed early signals from teams across industries, and here's what leaders can do.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mt-4">
+                    <img src="{{ asset('quanta-ai/photos/programming-background-with-person-working-with-codes-computer.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">📈 To Get Smarter, Ask These 3 AI Questions Daily</h5>
+                        <p class="card-text">Forget self-help clichés—here's how AI can actually make you think better.</p><p>Simple prompts, deeper reflections, better decisions.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="{{ asset('quanta-ai/photos/futuristic-robot-interacting-with-money.jpg') }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">💸 How 9 Lines of Prompting Turned into a $10M SaaS Tool</h5>
+                        <p class="card-text">It started with an idea to simplify customer service replies. Now it's automating entire workflows.
+</p><p>Discover how this founder used GPT to build a tool that major companies rely on daily.
+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog section -->
 
 <!-- contacts -->
 <div class="contac pt-5 pb-5" id="contact">
@@ -480,24 +437,6 @@ We noticed early signals from teams across industries, and here's what leaders c
 </div>
 <!-- contacts -->
 
-<!-- DoubleTick -->
-<div class="DoubleTick pt-5 pb-5">
-    <div class="container" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <div class="row d-flex align-items-center">
-            <div class="col-lg-8">
-                <h1>7x your sales with <span class="start-title">QuantaMinds AI</span> powered by WhatsApp Business API</h1>
-                <p>Our team will onboard you and help in setting up your account for free</p>
-                <button type="button" class="btn custom-btn">Get a demo</button>
-                <button class="custom-btn2">view plans</button>
-            </div>
-            <div class="col-lg-4">
-                <img src="https://doubletick.io/_next/static/media/cta-img.a5714ce3.webp" class="img-fluid img" alt="CTA Image">
-            </div>
-        </div> 
-    </div>
-</div>
-<!-- DoubleTick -->
-
 <!-- footer -->
 <div class="footer pt-5 pb-5">
     <div class="container mt-5">
@@ -512,7 +451,7 @@ We noticed early signals from teams across industries, and here's what leaders c
                 <h5 class="footer-title" data-aos="fade-up" data-aos-delay="100">Product</h5>
                 <ul class="footer-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#Quantapricing">Pricing</a></li>
                     <li><a href="#demo">Demo</a></li>
                     <li><a href="#">API</a></li>
                 </ul>
@@ -520,8 +459,8 @@ We noticed early signals from teams across industries, and here's what leaders c
             <div class="col-lg-2 col-md-6 mb-4">
                 <h5 class="footer-title" data-aos="fade-up" data-aos-delay="200">Company</h5>
                 <ul class="footer-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blog">Blog</a></li>
                     <li><a href="#">Careers</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -689,23 +628,21 @@ function createTestimonialCard(testimonial) {
     `;
 }
 
-function populateRow(rowId, startIndex, repetitions = 4) {
+function populateRow(rowId) {
     const row = document.getElementById(rowId);
-    let html = '';
-    
-    // Create multiple copies for seamless loop
-    for (let rep = 0; rep < repetitions; rep++) {
-        for (let i = 0; i < testimonials.length; i++) {
-            const testimonialIndex = (startIndex + i) % testimonials.length;
-            html += createTestimonialCard(testimonials[testimonialIndex]);
-        }
+    if (!row) return;
+
+    let contentHtml = '';
+    for (let i = 0; i < testimonials.length; i++) {
+        contentHtml += createTestimonialCard(testimonials[i]);
     }
-    
-    row.innerHTML = html;
+
+    // Duplicate the content once for a seamless loop
+    row.innerHTML = contentHtml + contentHtml;
 }
 
 // Populate single row with testimonials
-populateRow('row1', 0);
+populateRow('row1');
 
 </script>
 

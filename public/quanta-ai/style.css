@@ -1040,7 +1040,6 @@ body {
     color: var(--Blue-Violet) !important;
     border: 2px solid #fff;
     margin-left: 5px;
-    border-radius: 25px;
     border-color: var(--Blue-Violet);
     padding: 10px 25px;
     font-size: 1.1rem;
@@ -1252,7 +1251,7 @@ body {
 /* testimonial */
 
 .testimonials-section {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background-color: var(--background);
     padding: 80px 0;
     overflow: hidden;
 }
@@ -1289,7 +1288,7 @@ body {
 .marquee-row {
     display: flex;
     gap: 30px;
-    animation: marquee-left 60s linear infinite;
+    animation: marquee-left 150s linear infinite;
     width: max-content;
 }
 
@@ -1313,17 +1312,21 @@ body {
     position: relative;
     transition: all 0.3s ease;
     border: 1px solid rgba(94, 103, 174, 0.1);
+    overflow: hidden;
 }
 
 .testimonial-card::before {
-    content: '"';
+    content: '“';
     position: absolute;
-    top: -10px;
+    top: 25px;
     left: 20px;
-    font-size: 4rem;
+    font-size: 5rem;
     color: var(--Blue-Violet);
-    opacity: 0.2;
-    font-family: serif;
+    opacity: 0.08;
+    font-family: "Times New Roman", Times, serif;
+    line-height: 0.5;
+    z-index: 0;
+    transition: all 0.3s ease;
 }
 
 .testimonial-card:hover {
@@ -1333,7 +1336,14 @@ body {
 }
 
 .testimonial-card:hover::before {
-    opacity: 0.4;
+    opacity: 0.12;
+    transform: translateX(-5px);
+}
+
+.testimonial-content,
+.testimonial-author {
+    position: relative;
+    z-index: 1;
 }
 
 .stars {
@@ -1656,7 +1666,7 @@ body {
 
     .marquee-row {
         gap: 20px;
-        animation: marquee-left 80s linear infinite;
+        animation: marquee-left 180s linear infinite;
     }
 }
 
@@ -1685,7 +1695,7 @@ body {
 
     .marquee-row {
         gap: 15px;
-        animation: marquee-left 100s linear infinite;
+        animation: marquee-left 220s linear infinite;
     }
 }
 
@@ -1703,6 +1713,10 @@ body {
     }
 
     .marquee-row {
-        animation: marquee-left 120s linear infinite;
+        animation: marquee-left 250s linear infinite;
     }
+}
+
+.marquee-container:hover .marquee-row {
+    animation-play-state: paused;
 }
