@@ -37,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
         Route::resource('users', AdminUserController::class);
         Route::resource('settings', AdminSettingController::class);
+        Route::post('blogs/generate-content', [AdminBlogController::class, 'generateContent'])->name('blogs.generateContent');
         Route::resource('blogs', AdminBlogController::class);
         Route::resource('contacts', AdminContactController::class)->only(['index', 'destroy']);
     });
@@ -48,7 +49,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Change Password routes
     Route::get('/change-password', [ChangePasswordController::class, 'edit'])->name('password.edit');
-    Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('password.update');
+    Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('password.change');
 });
 
 require __DIR__.'/auth.php';

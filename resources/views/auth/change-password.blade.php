@@ -9,12 +9,12 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            @if (session('success'))
+            @if (session('status'))
                 <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
+                    {{ session('status') }}
                 </div>
             @endif
-            <form action="{{ route('password.update') }}" method="POST">
+            <form action="{{ route('password.change') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="current_password">Current Password</label>

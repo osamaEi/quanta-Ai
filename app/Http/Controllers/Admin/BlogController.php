@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Services\OpenAIService;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -40,5 +41,14 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         return view('admin.blogs.show', compact('blog'));
+    }
+
+    public function generateContent(Request $request, OpenAIService $openAIService)
+    {
+        $request->validate(['title' => 'required|string|max:255']);
+
+        $content = $openAIService->generateBlogContent($request->title);
+
+        return response()->json(['content' => $content]);
     }
 }
