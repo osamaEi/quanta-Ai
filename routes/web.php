@@ -40,6 +40,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('blogs/generate-content', [AdminBlogController::class, 'generateContent'])->name('blogs.generateContent');
         Route::resource('blogs', AdminBlogController::class);
         Route::resource('contacts', AdminContactController::class)->only(['index', 'destroy']);
+        
+        // AI Chat Routes
+        Route::get('/chat', [\App\Http\Controllers\Admin\ChatController::class, 'index'])->name('chat.index');
+        Route::post('/chat', [\App\Http\Controllers\Admin\ChatController::class, 'sendMessage'])->name('chat.sendMessage');
     });
 
     // Profile routes

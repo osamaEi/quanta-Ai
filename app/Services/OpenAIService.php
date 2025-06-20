@@ -52,4 +52,43 @@ class OpenAIService
             return '<p>Error: Could not generate content at this time. Please try again later.</p>';
         }
     }
+
+    /**
+     * Generates a conversational response.
+     *
+     * @param string $message
+     * @param array $history
+     * @return string
+     */
+    public function getChatResponse(string $message, array $history = []): string
+    {
+        try {
+            $messages = [
+                [
+                    'role' => 'system',
+                    'content' => 'You are a helpful assistant integrated into a Laravel admin panel. Be concise and helpful.'
+                ],
+                // Add previous conversation history
+                ...$history,
+                // Add the new user message
+                [
+                    'role' => 'user',
+                    'content' => $message
+                ]
+            ];
+
+            $response = $this->client->chat()->create([
+                'model' => 'gpt-3.5-turbo',
+                'messages' => $messages,
+                'temperature' => 0.6,
+                'max_tokens' => 1000,
+            ]);
+
+            return $response->choices[0]->message->content ?? '';
+
+        } catch (\Exception $e) {
+            report($e);
+            return 'Sorry, I encountered an error. Please try again.';
+        }
+    }
 } 
