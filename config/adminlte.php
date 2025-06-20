@@ -307,15 +307,6 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
             'text' => 'Dashboard',
             'route' => 'admin.dashboard',
             'icon' => 'fas fa-fw fa-tachometer-alt',
@@ -325,75 +316,14 @@ return [
             'route' => 'admin.chat.index',
             'icon' => 'fas fa-fw fa-comments',
         ],
-        [
-            'text' => 'pages',
-            'url' => 'admin/pages',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
         ['header' => 'account_settings'],
-        ['text' => 'profile', 'url' => 'profile', 'icon' => 'fas fa-fw fa-user'],
+        ['text' => 'profile', 'route' => 'profile.edit', 'icon' => 'fas fa-fw fa-user'],
         ['text' => 'change_password', 'route'  => 'password.edit', 'icon' => 'fas fa-fw fa-lock'],
         ['header' => 'management', 'can' => 'view-admin-area'],
-        ['text' => 'Users', 'url' => 'admin/users', 'icon' => 'fas fa-fw fa-users', 'can' => 'view-admin-area'],
-        ['text' => 'Settings', 'url' => 'admin/settings', 'icon' => 'fas fa-fw fa-cogs', 'can' => 'view-admin-area'],
-        ['text' => 'Blogs', 'url' => 'admin/blogs', 'icon' => 'fas fa-fw fa-blog', 'can' => 'view-admin-area'],
-        ['text' => 'Contact Messages', 'url' => 'admin/contacts', 'icon' => 'fas fa-fw fa-envelope', 'can' => 'view-admin-area'],
-        [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url' => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+        ['text' => 'Users', 'route' => 'admin.users.index', 'icon' => 'fas fa-fw fa-users', 'can' => 'view-admin-area'],
+        ['text' => 'Settings', 'route' => 'admin.settings.index', 'icon' => 'fas fa-fw fa-cogs', 'can' => 'view-admin-area'],
+        ['text' => 'Blogs', 'route' => 'admin.blogs.index', 'icon' => 'fas fa-fw fa-blog', 'can' => 'view-admin-area'],
+        ['text' => 'Contact Messages', 'route' => 'admin.contacts.index', 'icon' => 'fas fa-fw fa-envelope', 'can' => 'view-admin-area'],
     ],
 
     /*
