@@ -396,16 +396,9 @@ We noticed early signals from teams across industries, and here's what leaders c
         </div>
     </div>
 
-    <!-- First Row -->
+    <!-- Single Row -->
     <div class="marquee-container">
         <div class="marquee-row" id="row1">
-            <!-- Testimonials will be populated by JavaScript -->
-        </div>
-    </div>
-
-    <!-- Second Row -->
-    <div class="marquee-container">
-        <div class="marquee-row" id="row2" style="animation-direction: reverse;">
             <!-- Testimonials will be populated by JavaScript -->
         </div>
     </div>
@@ -711,9 +704,8 @@ function populateRow(rowId, startIndex, repetitions = 4) {
     row.innerHTML = html;
 }
 
-// Populate rows with different starting points for variety
+// Populate single row with testimonials
 populateRow('row1', 0);
-populateRow('row2', 4);
 
 </script>
 

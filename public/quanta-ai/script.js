@@ -1,16 +1,13 @@
 AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+  duration: 1000,
+  once: true,
+  offset: 100
+});
 
-    
-
-// pricing
-
+// pricing toggle functionality
+document.addEventListener('DOMContentLoaded', function () {
   const monthlyBtn = document.getElementById("monthlyBtn");
   const yearlyBtn = document.getElementById("yearlyBtn");
-
   const proPrice = document.getElementById("proPrice");
   const premiumPrice = document.getElementById("premiumPrice");
   const pricePeriod = document.querySelectorAll(".price-period");
@@ -20,23 +17,65 @@ AOS.init({
     monthlyBtn.classList.add("active");
   }
 
-  monthlyBtn?.addEventListener("click", () => {
-    monthlyBtn.classList.add("active");
-    yearlyBtn.classList.remove("active");
+  // Monthly button click handler
+  monthlyBtn?.addEventListener("click", function () {
+    if (!this.classList.contains('active')) {
+      // Remove active class from yearly button
+      yearlyBtn.classList.remove("active");
+      // Add active class to monthly button
+      this.classList.add("active");
 
-    proPrice.innerText = "149";
-    premiumPrice.innerText = "349";
-    pricePeriod.forEach(p => p.innerText = "per month");
+      // Update prices with smooth transition
+      animatePriceChange(proPrice, "149");
+      animatePriceChange(premiumPrice, "349");
+
+      // Update period text
+      pricePeriod.forEach(p => {
+        p.style.opacity = '0';
+        setTimeout(() => {
+          p.innerText = "per month";
+          p.style.opacity = '1';
+        }, 150);
+      });
+    }
   });
 
-  yearlyBtn?.addEventListener("click", () => {
-    yearlyBtn.classList.add("active");
-    monthlyBtn.classList.remove("active");
+  // Yearly button click handler
+  yearlyBtn?.addEventListener("click", function () {
+    if (!this.classList.contains('active')) {
+      // Remove active class from monthly button
+      monthlyBtn.classList.remove("active");
+      // Add active class to yearly button
+      this.classList.add("active");
 
-    proPrice.innerText = "1490";
-    premiumPrice.innerText = "3490";
-    pricePeriod.forEach(p => p.innerText = "per year");
+      // Update prices with smooth transition
+      animatePriceChange(proPrice, "1490");
+      animatePriceChange(premiumPrice, "3490");
+
+      // Update period text
+      pricePeriod.forEach(p => {
+        p.style.opacity = '0';
+        setTimeout(() => {
+          p.innerText = "per year";
+          p.style.opacity = '1';
+        }, 150);
+      });
+    }
   });
+
+  // Function to animate price changes
+  function animatePriceChange(element, newPrice) {
+    if (element) {
+      element.style.transform = 'scale(1.1)';
+      element.style.transition = 'transform 0.2s ease';
+
+      setTimeout(() => {
+        element.innerText = newPrice;
+        element.style.transform = 'scale(1)';
+      }, 100);
+    }
+  }
+});
 
 
 
