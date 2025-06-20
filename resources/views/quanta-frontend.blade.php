@@ -100,7 +100,7 @@
 </div>
 
 <!-- marquee universities -->
-<div class="univercities pt-5 pb-5">
+{{-- <div class="univercities pt-5 pb-5">
     <div class="container">
         <div class="head text-center">
             <h2 class="mb-4">Our Partner Universities</h2>
@@ -144,7 +144,7 @@
         </div>
     </div>
     </div>
-</div>
+</div> --}}
 <!-- marquee universities -->
 
 <!-- start section -->
