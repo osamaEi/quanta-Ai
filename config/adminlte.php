@@ -113,11 +113,11 @@ return [
         'enabled' => true,
         'mode' => 'fullscreen',
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'quanta-ai/photos/logo.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,
-            'height' => 60,
+            'width' => '200',
+            'height' => '100',
         ],
     ],
 
@@ -134,7 +134,7 @@ return [
     */
 
     'usermenu_enabled' => true,
-    'usermenu_header' => false,
+    'usermenu_header' => true,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
     'usermenu_desc' => false,
@@ -329,6 +329,12 @@ return [
             'icon' => 'fas fa-fw fa-robot',
             'can' => 'company-area',
         ],
+        [
+            'text' => 'My Testimonials',
+            'route' => 'company.testimonials.index',
+            'icon' => 'fas fa-fw fa-star',
+            'can' => 'company-area',
+        ],
         ['header' => 'account_settings'],
         ['text' => 'profile', 'route' => 'profile.edit', 'icon' => 'fas fa-fw fa-user'],
         ['text' => 'change_password', 'route'  => 'password.edit', 'icon' => 'fas fa-fw fa-lock'],
@@ -337,6 +343,7 @@ return [
         ['text' => 'Settings', 'route' => 'admin.settings.index', 'icon' => 'fas fa-fw fa-cogs', 'can' => 'view-admin-area'],
         ['text' => 'Blogs', 'route' => 'admin.blogs.index', 'icon' => 'fas fa-fw fa-blog', 'can' => 'view-admin-area'],
         ['text' => 'Contact Messages', 'route' => 'admin.contacts.index', 'icon' => 'fas fa-fw fa-envelope', 'can' => 'view-admin-area'],
+        ['text' => 'Testimonials', 'route' => 'admin.testimonials.index', 'icon' => 'fas fa-fw fa-star', 'can' => 'view-admin-area'],
     ],
 
     /*

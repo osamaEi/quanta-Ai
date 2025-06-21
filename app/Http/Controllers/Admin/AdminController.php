@@ -8,6 +8,7 @@ use App\Models\Setting;
 use App\Models\User;
 use App\Models\Customer;
 use App\Models\Conversation;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +21,11 @@ class AdminController extends Controller
         $usersCount = User::count();
         $blogsCount = Blog::count();
         $settingsCount = Setting::count();
+        
+        // Testimonial statistics
+        $testimonialsCount = Testimonial::count();
+        $publishedTestimonialsCount = Testimonial::where('is_published', true)->count();
+        $pendingTestimonialsCount = Testimonial::where('is_published', false)->count();
         
         // Customer statistics
         $customersCount = $company->customers()->count();
@@ -52,6 +58,9 @@ class AdminController extends Controller
             'usersCount', 
             'blogsCount', 
             'settingsCount',
+            'testimonialsCount',
+            'publishedTestimonialsCount',
+            'pendingTestimonialsCount',
             'customersCount',
             'unreadMessagesCount',
             'aiResponsesCount',

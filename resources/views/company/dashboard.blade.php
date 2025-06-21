@@ -20,6 +20,28 @@
     </div>
 
     <div class="row">
+        <!-- Testimonial Submission Card -->
+        <div class="col-md-12 mb-4">
+            <div class="card card-info card-outline">
+                <div class="card-header">
+                    <h5 class="card-title mb-0"><i class="fas fa-star me-2"></i>Share Your Experience</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-3">Help other businesses by sharing your experience with our services. Your testimonial will be reviewed and may be featured on our website.</p>
+                    <div class="btn-group" role="group">
+                        <a href="{{ route('company.testimonials.create') }}" class="btn btn-info">
+                            <i class="fas fa-plus me-2"></i>Submit Testimonial
+                        </a>
+                        <a href="{{ route('company.testimonials.index') }}" class="btn btn-outline-info">
+                            <i class="fas fa-list me-2"></i>View My Testimonials
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <!-- Company Info Card -->
         <div class="col-md-6 mb-4">
             <div class="card card-primary card-outline">

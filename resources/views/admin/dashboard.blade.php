@@ -3,7 +3,7 @@
 @section('title', 'Company Dashboard')
 
 @section('content_header')
-    <h1>Company Dashboard</h1>
+    <h1>Admin Dashboard</h1>
 @stop
 
 @section('content')
@@ -23,6 +23,22 @@
         <div class="col-lg-3 col-6">
             <x-adminlte-small-box title="{{ $aiResponsesCount ?? 0 }}" text="AI Responses Today" icon="fas fa-robot text-dark"
                 theme="success" url="admin/chat" url-text="View All"/>
+        </div>
+    </div>
+
+    <!-- Testimonial Statistics -->
+    <div class="row mb-4">
+        <div class="col-lg-4 col-6">
+            <x-adminlte-small-box title="{{ $testimonialsCount ?? 0 }}" text="Total Testimonials" icon="fas fa-star text-dark"
+                theme="primary" url="admin/testimonials" url-text="View All"/>
+        </div>
+        <div class="col-lg-4 col-6">
+            <x-adminlte-small-box title="{{ $publishedTestimonialsCount ?? 0 }}" text="Published Testimonials" icon="fas fa-check-circle text-dark"
+                theme="success" url="admin/testimonials" url-text="View All"/>
+        </div>
+        <div class="col-lg-4 col-6">
+            <x-adminlte-small-box title="{{ $pendingTestimonialsCount ?? 0 }}" text="Pending Review" icon="fas fa-clock text-dark"
+                theme="warning" url="admin/testimonials" url-text="Review Now"/>
         </div>
     </div>
 
@@ -209,6 +225,32 @@
                         <a href="{{ route('admin.customers.statistics') }}" class="btn btn-info btn-block">
                             <i class="fas fa-chart-bar mr-2"></i>
                             Customer Statistics
+                        </a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <a href="{{ route('admin.testimonials.index') }}" class="btn btn-secondary btn-block">
+                            <i class="fas fa-star mr-2"></i>
+                            Manage Testimonials
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ route('admin.blogs.create') }}" class="btn btn-dark btn-block">
+                            <i class="fas fa-plus mr-2"></i>
+                            Create Blog Post
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ route('admin.settings.index') }}" class="btn btn-outline-primary btn-block">
+                            <i class="fas fa-cogs mr-2"></i>
+                            System Settings
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{{ route('admin.contacts.index') }}" class="btn btn-outline-info btn-block">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Contact Messages
                         </a>
                     </div>
                 </div>

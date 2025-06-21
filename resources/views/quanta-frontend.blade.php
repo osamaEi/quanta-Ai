@@ -156,36 +156,86 @@
 <!-- DoubleTick -->
 
 <!-- testimonial -->
-<div class="testimonials-section">
+<div class="testimonials-section pt-5 pb-5">
     <div class="container">
-        <div class="section-title">
-            <h2>What Our Clients Say</h2>
-            <p>Discover our clients' success stories and how we helped them achieve their goals</p>
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold">What Our Clients Say</h2>
+            <p class="text-muted">Discover our clients' success stories and how we helped them achieve their goals</p>
         </div>
     </div>
 
     @if($testimonials->isNotEmpty())
-    <!-- Single Row -->
-    <div class="marquee-container">
-        <div class="marquee-row" id="row1">
-            @foreach($testimonials as $testimonial)
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <div class="rating">
-                        @for ($i = 0; $i < $testimonial->rating; $i++)
-                            <i class="fas fa-star"></i>
-                        @endfor
+    <div class="testimonials-marquee-container">
+        <div class="testimonials-marquee">
+            <!-- First set of testimonials -->
+            <div class="testimonials-row">
+                @foreach($testimonials as $testimonial)
+                <div class="testimonial-card">
+                    <div class="testimonial-content p-4">
+                        <div class="rating mb-3">
+                            @for ($i = 0; $i < $testimonial->rating; $i++)
+                                <i class="fas fa-star text-warning"></i>
+                            @endfor
+                            @for ($i = $testimonial->rating; $i < 5; $i++)
+                                <i class="far fa-star text-muted"></i>
+                            @endfor
+                        </div>
+                        <p class="testimonial-text mb-4">"{{ Str::limit($testimonial->content, 150) }}"</p>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="author-avatar me-3">
+                                <div class="avatar-circle">
+                                    <span class="avatar-text">{{ substr($testimonial->user->name, 0, 1) }}</span>
+                                </div>
+                            </div>
+                            <div class="author-info">
+                                <h6 class="mb-1 fw-bold">{{ $testimonial->user->name }}</h6>
+                                <small class="text-muted">{{ $testimonial->user->company_name ?? 'Client' }}</small>
+                            </div>
+                        </div>
                     </div>
-                    <p>"{{ $testimonial->content }}"</p>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h5>{{ $testimonial->user->name }}</h5>
-                        <span>{{ $testimonial->user->company_name ?? 'Client' }}</span>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            @endforeach
+            
+            <!-- Duplicate set for seamless loop -->
+            <div class="testimonials-row">
+                @foreach($testimonials as $testimonial)
+                <div class="testimonial-card">
+                    <div class="testimonial-content p-4">
+                        <div class="rating mb-3">
+                            @for ($i = 0; $i < $testimonial->rating; $i++)
+                                <i class="fas fa-star text-warning"></i>
+                            @endfor
+                            @for ($i = $testimonial->rating; $i < 5; $i++)
+                                <i class="far fa-star text-muted"></i>
+                            @endfor
+                        </div>
+                        <p class="testimonial-text mb-4">"{{ Str::limit($testimonial->content, 150) }}"</p>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="author-avatar me-3">
+                                <div class="avatar-circle">
+                                    <span class="avatar-text">{{ substr($testimonial->user->name, 0, 1) }}</span>
+                                </div>
+                            </div>
+                            <div class="author-info">
+                                <h6 class="mb-1 fw-bold">{{ $testimonial->user->name }}</h6>
+                                <small class="text-muted">{{ $testimonial->user->company_name ?? 'Client' }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    @else
+    <div class="container">
+        <div class="text-center">
+            <div class="empty-testimonials">
+                <i class="fas fa-comments fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">No testimonials available yet</h5>
+                <p class="text-muted">Be the first to share your experience with QuantaMinds AI!</p>
+            </div>
         </div>
     </div>
     @endif
@@ -409,17 +459,6 @@ We noticed early signals from teams across industries, and here's what leaders c
                         </div>
                     @endif
                     
-                    @if($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <ul class="mb-0">
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    
                     <div class="row">
                         <div class="col-lg-4">
                         </div>
@@ -429,24 +468,62 @@ We noticed early signals from teams across industries, and here's what leaders c
                                 <h2>GET in touch</h2>
                                 <p>feel free to drop us in below!</p>
                             </div>
+                            
+                            <!-- Success Message -->
+                            @if(session('success'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-check-circle me-2"></i>
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+
+                            <!-- Error Messages -->
+                            @if($errors->any())
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <strong>Please fix the following errors:</strong>
+                                    <ul class="mb-0 mt-2">
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">name</label>
-                                <input type="text" name="name" class="form-control" required value="{{ old('name') }}">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" required value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required value="{{ old('email') }}">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" required value="{{ old('email') }}">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                @error('email')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Subject</label>
-                                <input type="text" name="subject" class="form-control" required value="{{ old('subject') }}">
+                                <input type="text" name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror" required value="{{ old('subject') }}">
+                                @error('subject')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" name="message" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required>{{ old('message') }}</textarea>
-                                <label for="floatingTextarea2">type your message here</label>
+                                <textarea class="form-control @error('message') is-invalid @enderror" name="message" placeholder="Leave a comment here" id="message" style="height: 100px" required>{{ old('message') }}</textarea>
+                                <label for="message">Type your message here</label>
+                                @error('message')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Submit
+                            </button>
                         </form>
                     </div>
                 </div>
