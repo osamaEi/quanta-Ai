@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>تسجيل الدخول - Quantaminds AI</title>
+    <title>Login - Quantaminds AI</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
@@ -228,7 +228,8 @@
             
             .back-home {
                 top: 1rem;
-                right: 1rem;
+                left: 1rem;
+                right: auto;
             }
         }
     </style>
@@ -239,16 +240,16 @@
     <!-- Back to Home -->
     <div class="back-home">
         <a href="{{ route('home') }}">
-            <i class="fas fa-arrow-right me-2"></i>
-            العودة للرئيسية
+            <i class="fas fa-arrow-left me-2"></i>
+            Back to Home
         </a>
     </div>
 
     <div class="login-card">
         <div class="login-header">
             <img src="{{ asset('quanta-ai/photos/logo.png') }}" alt="Quantaminds AI Logo">
-            <h2>تسجيل الدخول</h2>
-            <p>مرحباً بك في نظام إدارة WhatsApp AI</p>
+            <h2>Login</h2>
+            <p>Welcome to the WhatsApp AI Management System</p>
         </div>
 
         <!-- Success Message -->
@@ -277,19 +278,19 @@
 
             <!-- Email Address -->
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="البريد الإلكتروني" value="{{ old('email') }}" required autofocus>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required autofocus>
                 <label for="email">
                     <i class="fas fa-envelope me-2"></i>
-                    البريد الإلكتروني
+                    Email Address
                 </label>
             </div>
 
             <!-- Password -->
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" name="password" placeholder="كلمة المرور" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 <label for="password">
                     <i class="fas fa-lock me-2"></i>
-                    كلمة المرور
+                    Password
                 </label>
             </div>
 
@@ -297,14 +298,14 @@
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="remember" name="remember">
                 <label class="form-check-label" for="remember">
-                    تذكرني
+                    Remember me
                 </label>
             </div>
 
             <!-- Login Button -->
             <button type="submit" class="login-btn">
                 <i class="fas fa-sign-in-alt me-2"></i>
-                تسجيل الدخول
+                Log in
             </button>
 
             <!-- Forgot Password -->
@@ -312,17 +313,17 @@
                 @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}">
                         <i class="fas fa-key me-1"></i>
-                        نسيت كلمة المرور؟
+                        Forgot your password?
                     </a>
                 @endif
             </div>
 
             <!-- Register Link -->
             <div class="register-link">
-                <p>ليس لديك حساب؟</p>
+                <p>Don't have an account?</p>
                 <a href="{{ route('register') }}">
                     <i class="fas fa-user-plus me-1"></i>
-                    طلب خدمة جديدة
+                    Request a new service
                 </a>
             </div>
         </form>

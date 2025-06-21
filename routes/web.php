@@ -38,16 +38,10 @@ Route::middleware(['auth'])->group(function () {
     // User routes
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
 
-    // Company dashboard and settings
-    Route::get('/company/dashboard', [UserController::class, 'dashboard'])->name('company.dashboard');
-    Route::put('/company/settings', [UserController::class, 'updateSettings'])->name('company.settings.update');
-    Route::get('/company/chat', [UserController::class, 'showChat'])->name('company.chat');
-    Route::post('/company/chat/send', [UserController::class, 'sendChat'])->name('company.chat.send');
-    Route::put('/company/ai-settings', [UserController::class, 'updateAISettings'])->name('company.ai-settings.update');
-
     // Admin routes
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('dashbo
+        ard');
         Route::resource('users', AdminUserController::class);
         Route::resource('settings', AdminSettingController::class);
         Route::post('blogs/generate-content', [AdminBlogController::class, 'generateContent'])->name('blogs.generateContent');
@@ -78,6 +72,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/service-requests/{user}/approve', [ServiceRequestController::class, 'approve'])->name('service-requests.approve');
         Route::post('/service-requests/{user}/reject', [ServiceRequestController::class, 'reject'])->name('service-requests.reject');
         Route::get('/service-requests-statistics', [ServiceRequestController::class, 'statistics'])->name('service-requests.statistics');
+
+        // Testimonial routes
+        Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class)->names('admin.testimonials');
     });
 
     // Profile routes
@@ -87,6 +84,22 @@ Route::middleware(['auth'])->group(function () {
 
     // Change Password routes
     Route::get('/change-password', [ChangePasswordController::class, 'edit'])->name('password.edit');
+    Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('password.change');
+});
+
+Route::middleware(['auth', 'role:company'])->group(function () {
+    Route::get('/company/dashboard', [\App\Http\Controllers\User\UserController::class, 'dashboard'])->name('company.dashboard');
+    Route::post('/company/settings', [\App\Http\Controllers\User\UserController::class, 'updateSettings'])->name('company.settings.update');
+    Route::get('/company/chat', [\App\Http\Controllers\User\UserController::class, 'chat'])->name('company.chat');
+    Route::post('/company/chat/send', [\App\Http\Controllers\User\UserController::class, 'sendChatMessage'])->name('company.chat.send');
+    Route::put('/company/ai-settings', [UserController::class, 'updateAISettings'])->name('company.ai-settings.update');
+    Route::resource('company/testimonials', \App\Http\Controllers\TestimonialController::class)->only(['create', 'store'])->names('company.testimonials');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/change-password', [ChangePasswordController::class, 'index'])->name('change-password');
     Route::post('/change-password', [ChangePasswordController::class, 'update'])->name('password.change');
 });
 

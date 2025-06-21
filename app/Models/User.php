@@ -98,4 +98,17 @@ class User extends Authenticatable
             ->where('status', 'active')
             ->count();
     }
+
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+    /**
+     * Get the testimonials for the user.
+     */
+    public function testimonials(): HasMany
+    {
+        return $this->hasMany(Testimonial::class);
+    }
 }

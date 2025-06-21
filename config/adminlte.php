@@ -307,16 +307,9 @@ return [
 
         // Sidebar items:
         [
-            'text'        => 'Dashboard',
-            'route'       => 'admin.dashboard',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
-            'can'         => 'view-admin-area',
-        ],
-        [
-            'text'        => 'Dashboard',
-            'route'       => 'company.dashboard',
-            'icon'        => 'fas fa-fw fa-tachometer-alt',
-            'can'         => 'company-area',
+            'text' => 'Dashboard',
+            'route' => 'admin.dashboard',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         [
             'text' => 'Service Requests',

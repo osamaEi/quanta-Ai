@@ -164,12 +164,31 @@
         </div>
     </div>
 
+    @if($testimonials->isNotEmpty())
     <!-- Single Row -->
     <div class="marquee-container">
         <div class="marquee-row" id="row1">
-            <!-- Testimonials will be populated by JavaScript -->
+            @foreach($testimonials as $testimonial)
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="rating">
+                        @for ($i = 0; $i < $testimonial->rating; $i++)
+                            <i class="fas fa-star"></i>
+                        @endfor
+                    </div>
+                    <p>"{{ $testimonial->content }}"</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-info">
+                        <h5>{{ $testimonial->user->name }}</h5>
+                        <span>{{ $testimonial->user->company_name ?? 'Client' }}</span>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
+    @endif
 </div>
 <!-- testimonial -->
 
