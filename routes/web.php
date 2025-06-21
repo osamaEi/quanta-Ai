@@ -10,6 +10,8 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\WhatsAppController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +30,9 @@ Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::get('/contact', [ContactFormController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.store');
 
+// WhatsApp Webhook (public route)
+Route::post('/whatsapp/webhook', [WhatsAppController::class, 'webhook'])->name('whatsapp.webhook');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     // User routes
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
@@ -44,6 +49,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // AI Chat Routes
         Route::get('/chat', [\App\Http\Controllers\Admin\ChatController::class, 'index'])->name('chat.index');
         Route::post('/chat', [\App\Http\Controllers\Admin\ChatController::class, 'sendMessage'])->name('chat.sendMessage');
+        
+        // Customer Management Routes
+        Route::resource('customers', CustomerController::class);
+        Route::get('/customers/{customer}/conversations', [CustomerController::class, 'show'])->name('customers.show');
+        Route::get('/customers-statistics', [CustomerController::class, 'statistics'])->name('customers.statistics');
+        Route::get('/customers-search', [CustomerController::class, 'search'])->name('customers.search');
+        Route::post('/customers-export', [CustomerController::class, 'export'])->name('customers.export');
+        Route::post('/customers-bulk-update', [CustomerController::class, 'bulkUpdate'])->name('customers.bulkUpdate');
+        
+        // WhatsApp Management Routes
+        Route::get('/whatsapp/conversations', [WhatsAppController::class, 'getConversations'])->name('whatsapp.conversations');
+        Route::get('/whatsapp/customers/{customer}/conversations', [WhatsAppController::class, 'getCustomerConversations'])->name('whatsapp.customerConversations');
+        Route::post('/whatsapp/send-response', [WhatsAppController::class, 'sendManualResponse'])->name('whatsapp.sendResponse');
+        Route::post('/whatsapp/mark-read/{conversation}', [WhatsAppController::class, 'markAsRead'])->name('whatsapp.markRead');
     });
 
     // Profile routes

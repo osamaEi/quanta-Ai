@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -23,6 +24,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company_name',
+        'phone_number',
+        'whatsapp_number',
+        'ai_settings', // JSON field for AI configuration
     ];
 
     /**
@@ -43,11 +48,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'ai_settings' => 'array',
     ];
 
     public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function customers(): HasMany
+    {
+        return $this->hasMany(Customer::class);
+    }
+
+    public function conversations(): HasMany
+    {
+        return $this->hasMany(Conversation::class);
     }
 
     public function photos(): MorphMany
@@ -66,5 +82,20 @@ class User extends Authenticatable
     public function adminlte_profile_url()
     {
         return 'profile';
+    }
+
+    public function getUnreadConversationsCount()
+    {
+        return $this->conversations()
+            ->where('is_read', false)
+            ->where('direction', 'incoming')
+            ->count();
+    }
+
+    public function getActiveCustomersCount()
+    {
+        return $this->customers()
+            ->where('status', 'active')
+            ->count();
     }
 }
