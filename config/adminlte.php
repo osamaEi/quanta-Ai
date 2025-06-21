@@ -312,6 +312,12 @@ return [
             'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         [
+            'text' => 'Service Requests',
+            'route' => 'admin.service-requests.index',
+            'icon' => 'fas fa-fw fa-clipboard-list',
+            'can' => 'view-admin-area',
+        ],
+        [
             'text' => 'AI Chat',
             'route' => 'admin.chat.index',
             'icon' => 'fas fa-fw fa-comments',

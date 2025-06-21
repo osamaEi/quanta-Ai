@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Login - Quantaminds Ai</title>
+    <title>تسجيل الدخول - Quantaminds AI</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -30,7 +30,7 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Cairo', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -204,7 +204,7 @@
         .back-home {
             position: absolute;
             top: 2rem;
-            left: 2rem;
+            right: 2rem;
             z-index: 20;
         }
 
@@ -217,7 +217,7 @@
 
         .back-home a:hover {
             color: var(--white);
-            transform: translateX(-5px);
+            transform: translateX(5px);
         }
 
         @media (max-width: 576px) {
@@ -228,7 +228,7 @@
             
             .back-home {
                 top: 1rem;
-                left: 1rem;
+                right: 1rem;
             }
         }
     </style>
@@ -239,21 +239,22 @@
     <!-- Back to Home -->
     <div class="back-home">
         <a href="{{ route('home') }}">
-            <i class="fas fa-arrow-left me-2"></i>
-            Back to Home
+            <i class="fas fa-arrow-right me-2"></i>
+            العودة للرئيسية
         </a>
     </div>
 
     <div class="login-card">
         <div class="login-header">
             <img src="{{ asset('quanta-ai/photos/logo.png') }}" alt="Quantaminds AI Logo">
-            <h2>Welcome Back</h2>
-            <p>Sign in to your account to continue</p>
+            <h2>تسجيل الدخول</h2>
+            <p>مرحباً بك في نظام إدارة WhatsApp AI</p>
         </div>
 
-        <!-- Session Status -->
+        <!-- Success Message -->
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
                 {{ session('status') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -276,52 +277,52 @@
 
             <!-- Email Address -->
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{{ old('email') }}" required autofocus autocomplete="username">
+                <input type="email" class="form-control" id="email" name="email" placeholder="البريد الإلكتروني" value="{{ old('email') }}" required autofocus>
                 <label for="email">
                     <i class="fas fa-envelope me-2"></i>
-                    Email Address
+                    البريد الإلكتروني
                 </label>
             </div>
 
             <!-- Password -->
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required autocomplete="current-password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="كلمة المرور" required>
                 <label for="password">
                     <i class="fas fa-lock me-2"></i>
-                    Password
+                    كلمة المرور
                 </label>
             </div>
 
             <!-- Remember Me -->
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="remember_me" name="remember">
-                <label class="form-check-label" for="remember_me">
-                    Remember me
+                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                <label class="form-check-label" for="remember">
+                    تذكرني
                 </label>
             </div>
 
             <!-- Login Button -->
             <button type="submit" class="login-btn">
                 <i class="fas fa-sign-in-alt me-2"></i>
-                Sign In
+                تسجيل الدخول
             </button>
 
             <!-- Forgot Password -->
-            @if (Route::has('password.request'))
-                <div class="forgot-password">
+            <div class="forgot-password">
+                @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}">
                         <i class="fas fa-key me-1"></i>
-                        Forgot your password?
+                        نسيت كلمة المرور؟
                     </a>
-                </div>
-            @endif
+                @endif
+            </div>
 
             <!-- Register Link -->
             <div class="register-link">
-                <p>Don't have an account?</p>
+                <p>ليس لديك حساب؟</p>
                 <a href="{{ route('register') }}">
                     <i class="fas fa-user-plus me-1"></i>
-                    Create Account
+                    طلب خدمة جديدة
                 </a>
             </div>
         </form>

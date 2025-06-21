@@ -39,6 +39,15 @@ class AdminController extends Controller
             ->limit(5)
             ->get();
 
+        // Pending service requests
+        $pendingServiceRequests = User::whereHas('roles', function ($query) {
+            $query->where('name', 'company');
+        })
+        ->whereJsonContains('ai_settings->status', 'pending')
+        ->orderBy('created_at', 'desc')
+        ->limit(5)
+        ->get();
+
         return view('admin.dashboard', compact(
             'usersCount', 
             'blogsCount', 
@@ -46,7 +55,8 @@ class AdminController extends Controller
             'customersCount',
             'unreadMessagesCount',
             'aiResponsesCount',
-            'recentConversations'
+            'recentConversations',
+            'pendingServiceRequests'
         ));
     }
 }

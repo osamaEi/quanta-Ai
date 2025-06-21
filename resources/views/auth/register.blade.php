@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Register - Quantaminds Ai</title>
+    <title>Service Request - Quantaminds AI</title>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -65,7 +65,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 10;
-            max-width: 500px;
+            max-width: 600px;
             width: 100%;
             padding: 2rem;
         }
@@ -172,6 +172,11 @@
             color: #721c24;
         }
 
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
         .back-home {
             position: absolute;
             top: 2rem;
@@ -215,6 +220,40 @@
             margin-bottom: 0.25rem;
         }
 
+        .service-info {
+            background: linear-gradient(135deg, var(--Blue-Violet), var(--violet));
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .service-info h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .service-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-info li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-info li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--yello);
+            font-weight: bold;
+        }
+
         @media (max-width: 576px) {
             .register-card {
                 margin: 1rem;
@@ -242,8 +281,20 @@
     <div class="register-card">
         <div class="register-header">
             <img src="{{ asset('quanta-ai/photos/logo.png') }}" alt="Quantaminds AI Logo">
-            <h2>Create Account</h2>
-            <p>Join Quantaminds AI and start your journey</p>
+            <h2>WhatsApp AI Service Request</h2>
+            <p>Join us and get a smart assistant for your customer service via WhatsApp</p>
+        </div>
+
+        <!-- Service Information -->
+        <div class="service-info">
+            <h4><i class="fas fa-robot me-2"></i>Service Features</h4>
+            <ul>
+                <li>24/7 instant response to your customers</li>
+                <li>Smart assistant that speaks Arabic</li>
+                <li>Advanced conversation management</li>
+                <li>Detailed reports and statistics</li>
+                <li>Easy to use and control</li>
+            </ul>
         </div>
 
         <!-- Error Messages -->
@@ -258,30 +309,84 @@
             </div>
         @endif
 
+        <!-- Success Message -->
+        @if (session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('status') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <!-- Name -->
+            <!-- Company Name -->
             <div class="form-floating">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" value="{{ old('name') }}" required autofocus autocomplete="name">
+                <input type="text" class="form-control" id="company_name" name="company_name" placeholder="Company Name" value="{{ old('company_name') }}" required autofocus>
+                <label for="company_name">
+                    <i class="fas fa-building me-2"></i>
+                    Company Name
+                </label>
+            </div>
+
+            <!-- Contact Person Name -->
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Contact Person Name" value="{{ old('name') }}" required>
                 <label for="name">
                     <i class="fas fa-user me-2"></i>
-                    Full Name
+                    Contact Person Name
                 </label>
             </div>
 
             <!-- Email Address -->
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{{ old('email') }}" required autocomplete="username">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" value="{{ old('email') }}" required>
                 <label for="email">
                     <i class="fas fa-envelope me-2"></i>
                     Email Address
                 </label>
             </div>
 
+            <!-- Phone Number -->
+            <div class="form-floating">
+                <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Phone Number" value="{{ old('phone_number') }}" required>
+                <label for="phone_number">
+                    <i class="fas fa-phone me-2"></i>
+                    Phone Number
+                </label>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="form-floating">
+                <input type="tel" class="form-control" id="whatsapp_number" name="whatsapp_number" placeholder="WhatsApp Number" value="{{ old('whatsapp_number') }}" required>
+                <label for="whatsapp_number">
+                    <i class="fab fa-whatsapp me-2"></i>
+                    WhatsApp Number
+                </label>
+            </div>
+
+            <!-- Business Type -->
+            <div class="form-floating">
+                <select class="form-control" id="business_type" name="business_type" required>
+                    <option value="">Select Business Type</option>
+                    <option value="retail" {{ old('business_type') == 'retail' ? 'selected' : '' }}>Retail</option>
+                    <option value="wholesale" {{ old('business_type') == 'wholesale' ? 'selected' : '' }}>Wholesale</option>
+                    <option value="services" {{ old('business_type') == 'services' ? 'selected' : '' }}>Services</option>
+                    <option value="manufacturing" {{ old('business_type') == 'manufacturing' ? 'selected' : '' }}>Manufacturing</option>
+                    <option value="restaurant" {{ old('business_type') == 'restaurant' ? 'selected' : '' }}>Restaurant</option>
+                    <option value="healthcare" {{ old('business_type') == 'healthcare' ? 'selected' : '' }}>Healthcare</option>
+                    <option value="education" {{ old('business_type') == 'education' ? 'selected' : '' }}>Education</option>
+                    <option value="other" {{ old('business_type') == 'other' ? 'selected' : '' }}>Other</option>
+                </select>
+                <label for="business_type">
+                    <i class="fas fa-briefcase me-2"></i>
+                    Business Type
+                </label>
+            </div>
+
             <!-- Password -->
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                 <label for="password">
                     <i class="fas fa-lock me-2"></i>
                     Password
@@ -302,18 +407,32 @@
 
             <!-- Confirm Password -->
             <div class="form-floating">
-                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required>
                 <label for="password_confirmation">
                     <i class="fas fa-lock me-2"></i>
                     Confirm Password
                 </label>
             </div>
 
-            <!-- Register Button -->
+            <!-- Terms and Conditions -->
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                <label class="form-check-label" for="terms">
+                    I agree to the <a href="#" class="text-primary">Terms and Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
             <button type="submit" class="register-btn">
-                <i class="fas fa-user-plus me-2"></i>
-                Create Account
+                <i class="fas fa-paper-plane me-2"></i>
+                Submit Service Request
             </button>
+
+            <!-- Info Alert -->
+            <div class="alert alert-info" role="alert">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Note:</strong> Your request will be reviewed by management and you will receive a response within 24 hours. Make sure to verify your account via email.
+            </div>
 
             <!-- Login Link -->
             <div class="login-link">

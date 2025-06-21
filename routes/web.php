@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\SettingController as AdminSettingController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\ServiceRequestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\ChangePasswordController;
@@ -63,6 +64,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/whatsapp/customers/{customer}/conversations', [WhatsAppController::class, 'getCustomerConversations'])->name('whatsapp.customerConversations');
         Route::post('/whatsapp/send-response', [WhatsAppController::class, 'sendManualResponse'])->name('whatsapp.sendResponse');
         Route::post('/whatsapp/mark-read/{conversation}', [WhatsAppController::class, 'markAsRead'])->name('whatsapp.markRead');
+        
+        // Service Requests Management Routes
+        Route::get('/service-requests', [ServiceRequestController::class, 'index'])->name('service-requests.index');
+        Route::get('/service-requests/{user}', [ServiceRequestController::class, 'show'])->name('service-requests.show');
+        Route::post('/service-requests/{user}/approve', [ServiceRequestController::class, 'approve'])->name('service-requests.approve');
+        Route::post('/service-requests/{user}/reject', [ServiceRequestController::class, 'reject'])->name('service-requests.reject');
+        Route::get('/service-requests-statistics', [ServiceRequestController::class, 'statistics'])->name('service-requests.statistics');
     });
 
     // Profile routes
