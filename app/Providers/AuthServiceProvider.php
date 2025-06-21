@@ -27,5 +27,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('view-admin-area', function ($user) {
             return $user->roles()->where('name', 'Admin')->exists();
         });
+
+        Gate::define('company-area', function ($user) {
+            return $user->roles()->where('name', 'company')->exists();
+        });
     }
 }

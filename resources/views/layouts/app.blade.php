@@ -33,6 +33,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('contact.create') }}">{{ __('Contact') }}</a>
                             </li>
+                            @auth
+                                @if(Auth::user()->roles && Auth::user()->roles->contains('name', 'company'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('company.chat') }}">
+                                            <i class="fas fa-robot me-1"></i>AI Chat
+                                        </a>
+                                    </li>
+                                @endif
+                            @endauth
                         </ul>
 
                         <!-- Right Side Of Navbar -->

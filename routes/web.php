@@ -34,9 +34,16 @@ Route::post('/contact', [ContactFormController::class, 'store'])->name('contact.
 // WhatsApp Webhook (public route)
 Route::post('/whatsapp/webhook', [WhatsAppController::class, 'webhook'])->name('whatsapp.webhook');
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // User routes
     Route::get('/dashboard', [UserController::class, 'index'])->name('user.dashboard');
+
+    // Company dashboard and settings
+    Route::get('/company/dashboard', [UserController::class, 'dashboard'])->name('company.dashboard');
+    Route::put('/company/settings', [UserController::class, 'updateSettings'])->name('company.settings.update');
+    Route::get('/company/chat', [UserController::class, 'showChat'])->name('company.chat');
+    Route::post('/company/chat/send', [UserController::class, 'sendChat'])->name('company.chat.send');
+    Route::put('/company/ai-settings', [UserController::class, 'updateAISettings'])->name('company.ai-settings.update');
 
     // Admin routes
     Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
@@ -53,7 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         
         // Customer Management Routes
         Route::resource('customers', CustomerController::class);
-        Route::get('/customers/{customer}/conversations', [CustomerController::class, 'show'])->name('customers.show');
+        Route::get('/customers/{customer}/conversations', [CustomerController::class, 'show'])->name('admin.customers.conversations');
         Route::get('/customers-statistics', [CustomerController::class, 'statistics'])->name('customers.statistics');
         Route::get('/customers-search', [CustomerController::class, 'search'])->name('customers.search');
         Route::post('/customers-export', [CustomerController::class, 'export'])->name('customers.export');

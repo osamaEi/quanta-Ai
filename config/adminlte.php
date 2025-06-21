@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Quantaminds',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Quantaminds</b>',
+    'logo_img' => 'quanta-ai/photos/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
+    'logo_img_xl' => 'quanta-ai/photos/logo.png',
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'Quantaminds Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -307,9 +307,16 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'Dashboard',
-            'route' => 'admin.dashboard',
-            'icon' => 'fas fa-fw fa-tachometer-alt',
+            'text'        => 'Dashboard',
+            'route'       => 'admin.dashboard',
+            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'can'         => 'view-admin-area',
+        ],
+        [
+            'text'        => 'Dashboard',
+            'route'       => 'company.dashboard',
+            'icon'        => 'fas fa-fw fa-tachometer-alt',
+            'can'         => 'company-area',
         ],
         [
             'text' => 'Service Requests',
@@ -321,6 +328,13 @@ return [
             'text' => 'AI Chat',
             'route' => 'admin.chat.index',
             'icon' => 'fas fa-fw fa-comments',
+            'can' => 'view-admin-area',
+        ],
+        [
+            'text' => 'AI Chat',
+            'route' => 'company.chat',
+            'icon' => 'fas fa-fw fa-robot',
+            'can' => 'company-area',
         ],
         ['header' => 'account_settings'],
         ['text' => 'profile', 'route' => 'profile.edit', 'icon' => 'fas fa-fw fa-user'],
